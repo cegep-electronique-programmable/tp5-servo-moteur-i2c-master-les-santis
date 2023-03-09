@@ -4,18 +4,21 @@
 
 I2C i2c(I2C_SDA, I2C_SCL);
 
-int main() {
-
+int main()
+{
+  printf("allo\r\n");
   const int addr8bit = ADDRESSE_I2C_PAR_DEFAUT << 1;
 
   char cmd[1];
   char message[10];
 
-  while(1) {
-    cmd[0] = 127; // Démarrer le moteur
+  while (1)
+  {
+    cmd[0] = 126; // Démarrer le moteur
     i2c.write(addr8bit, cmd, 1);
 
     cmd[0] = 45; // Envoyer le moteur à la position 45°
+    printf("allo\r\n");
     i2c.write(addr8bit, cmd, 1);
 
     ThisThread::sleep_for(1000);
